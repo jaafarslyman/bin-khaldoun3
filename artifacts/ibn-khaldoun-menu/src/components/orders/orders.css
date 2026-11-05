@@ -116,3 +116,57 @@
   .guest-order-sheet,.guest-order-loading i { animation-duration: .01ms !important; }
   .guest-service-action { transition-duration: .01ms !important; }
 }
+
+.guest-service-actions {
+  position: fixed;
+  z-index: 30;
+  inset-inline: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 10px max(18px, calc((100vw - 720px) / 2)) max(10px, env(safe-area-inset-bottom));
+  gap: 8px;
+  border-top: 1px solid hsl(39 39% 62% / .24);
+  background: hsl(24 25% 15% / .97);
+  box-shadow: 0 -10px 34px hsl(24 24% 17% / .14);
+  backdrop-filter: blur(16px);
+}
+.guest-service-action {
+  min-height: 58px;
+  justify-content: center;
+  gap: 9px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: hsl(38 40% 94%);
+  background: transparent;
+}
+.guest-service-action:hover:not(:disabled) { border-color: hsl(39 46% 65% / .24); background: hsl(39 46% 65% / .08); transform: none; }
+.guest-action-icon { border-color: hsl(39 46% 65% / .35); color: hsl(39 58% 73%); background: hsl(39 46% 65% / .1); }
+.guest-service-action strong { color: hsl(38 40% 94%); font-size: 12px; }
+.guest-service-action small { color: hsl(33 15% 70%); font-size: 9px; }
+.guest-service-error {
+  position: fixed;
+  z-index: 32;
+  bottom: calc(148px + env(safe-area-inset-bottom));
+  inset-inline: 20px;
+  width: auto;
+  max-width: 680px;
+  margin-inline: auto;
+  padding: 9px 12px;
+  border: 1px solid hsl(2 42% 66% / .5);
+  background: hsl(36 32% 97%);
+  box-shadow: 0 5px 20px hsl(24 24% 17% / .12);
+}
+@media (min-width: 760px) {
+  .guest-service-actions { padding-inline: max(28px, calc((100vw - 820px) / 2)); }
+}
+@media (max-width: 560px) {
+  .guest-service-actions { gap: 2px; padding: 7px 8px max(7px, env(safe-area-inset-bottom)); }
+  .guest-service-action { min-height: 54px; flex-direction: column; gap: 3px; padding: 4px 3px; }
+  .guest-action-icon { width: 27px; height: 27px; }
+  .guest-service-action > span:last-child { align-items: center; gap: 0; }
+  .guest-service-action strong { font-size: 9px; }
+  .guest-service-action small { display: none; }
+}

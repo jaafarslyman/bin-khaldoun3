@@ -466,6 +466,38 @@ button { font: inherit; }
   *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
 }
 
+/* Ibn Khaldoun guest experience — the service rail is an always-near counter. */
+.menu-header { border-bottom-color: hsl(30 18% 38% / .18); }
+.brand-mark {
+  width: 76px;
+  height: 76px;
+  padding: 8px;
+  border: 1px solid hsl(39 46% 65% / .72);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, hsl(21 28% 22%), hsl(22 36% 11%) 68%);
+  box-shadow: 0 5px 16px hsl(24 24% 17% / .16), inset 0 0 0 3px hsl(39 46% 65% / .11);
+}
+.brand-mark img { width: 100%; height: 100%; max-width: none; max-height: none; object-fit: contain; mix-blend-mode: screen; }
+.menu-content { padding-bottom: 160px; }
+.menu-footer .footer-ornament { display: inline-block; width: 34px; height: 1px; overflow: hidden; color: transparent; background: hsl(39 46% 56%); vertical-align: middle; }
+.order-float {
+  bottom: calc(94px + env(safe-area-inset-bottom));
+  z-index: 31;
+  min-width: 214px;
+  justify-content: space-between;
+  border-color: hsl(39 48% 66% / .55);
+}
+@media (min-width: 760px) {
+  .menu-content { padding-bottom: 180px; }
+}
+@media (max-width: 560px) {
+  .menu-header { height: 77px; }
+  .brand-mark { width: 61px; height: 61px; padding: 7px; }
+  .order-float { left: 12px; bottom: calc(78px + env(safe-area-inset-bottom)); height: 43px; min-width: 155px; gap: 7px; padding-inline: 9px; font-size: 10px; }
+  .order-count { width: 22px; height: 22px; font-size: 10px; }
+  .menu-content { padding-bottom: 138px; }
+}
+
 /**
  * Using the elevate system.
  * Automatic contrast adjustment.

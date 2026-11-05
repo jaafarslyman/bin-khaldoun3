@@ -256,3 +256,153 @@
 @media (prefers-reduced-motion: reduce) {
   .admin-shell *, .admin-shell *::before, .admin-shell *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* A private service desk: smoked walnut, parchment, and restrained brass. */
+.admin-shell {
+  --admin-ink: hsl(25 26% 16%);
+  --admin-muted: hsl(25 13% 45%);
+  --admin-paper: hsl(39 40% 97%);
+  --admin-ground: hsl(36 34% 91%);
+  --admin-line: hsl(31 20% 79%);
+  --admin-umber: hsl(19 44% 27%);
+  --admin-gold: hsl(39 49% 62%);
+  background:
+    radial-gradient(ellipse at 100% 2%, hsl(39 51% 69% / .22), transparent 30rem),
+    linear-gradient(135deg, hsl(37 36% 93%), hsl(33 29% 89%));
+}
+.admin-brand-mark {
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border: 1px solid hsl(39 49% 62% / .7);
+  color: transparent;
+  background: radial-gradient(circle at 30% 28%, hsl(20 28% 22%), hsl(22 36% 10%) 72%);
+  box-shadow: inset 0 0 0 3px hsl(39 49% 62% / .12), 0 3px 12px hsl(24 24% 17% / .12);
+}
+.admin-brand-mark img { width: 100%; height: 100%; padding: 5px; object-fit: contain; mix-blend-mode: screen; }
+.admin-auth-wrap { position: relative; z-index: 1; width: min(100% - 42px, 480px); padding-top: clamp(30px, 8vh, 82px); }
+.admin-auth-wrap::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  inset-inline-start: 0;
+  width: max(30vw, 330px);
+  height: 100dvh;
+  background:
+    radial-gradient(ellipse at 28% 30%, hsl(39 49% 62% / .14), transparent 18rem),
+    linear-gradient(160deg, hsl(21 37% 19%), hsl(24 28% 12%));
+  border-inline-end: 1px solid hsl(39 49% 62% / .3);
+}
+.admin-auth-wrap::after {
+  content: "بن خلدون";
+  position: fixed;
+  z-index: -1;
+  inset-inline-start: 5vw;
+  top: 40%;
+  color: hsl(38 45% 83% / .14);
+  font: 700 clamp(35px, 5vw, 68px)/1.4 var(--app-font-serif, 'Amiri', serif);
+  writing-mode: vertical-rl;
+  letter-spacing: .12em;
+}
+.admin-auth-wrap > .admin-brand { color: var(--admin-ink); }
+.admin-auth-wrap > .admin-brand small { color: var(--admin-muted); }
+.admin-auth-card {
+  position: relative;
+  margin-top: 33px;
+  padding: 39px 40px 31px;
+  border: 1px solid hsl(31 20% 79% / .9);
+  border-radius: 3px;
+  background: hsl(39 40% 97% / .94);
+  box-shadow: 0 28px 80px hsl(24 25% 13% / .16);
+}
+.admin-auth-icon { border-radius: 4px; color: hsl(39 49% 49%); background: hsl(39 49% 62% / .2); }
+.admin-auth-card h1 { font-size: 37px; }
+.admin-auth-foot { text-align: right; }
+.admin-workspace { padding-bottom: 68px; }
+.admin-topbar {
+  position: relative;
+  height: 84px;
+  padding-inline: max(26px, calc((100vw - 1240px) / 2));
+  border-bottom: 1px solid hsl(39 49% 62% / .25);
+  color: hsl(38 40% 94%);
+  background: linear-gradient(105deg, hsl(23 31% 17%), hsl(22 35% 12%));
+  box-shadow: 0 8px 24px hsl(24 24% 17% / .1);
+}
+.admin-topbar .admin-brand { color: hsl(38 40% 94%); }
+.admin-topbar .admin-brand small { color: hsl(34 19% 70%); }
+.admin-session-email { color: hsl(34 19% 73%); }
+.admin-quiet-button { border-color: hsl(39 33% 62% / .34); color: hsl(39 55% 77%); }
+.admin-quiet-button:hover { background: hsl(39 46% 65% / .12); }
+.admin-section-nav {
+  width: min(100% - 52px, 1240px);
+  margin-top: 23px;
+  padding: 0 0 12px;
+  gap: 10px;
+  border-bottom-color: hsl(29 20% 53% / .22);
+}
+.admin-section-nav button {
+  min-height: 43px;
+  padding-inline: 17px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.admin-section-nav button.is-active {
+  border-color: hsl(20 43% 31% / .13);
+  color: hsl(39 43% 29%);
+  background: hsl(39 50% 72% / .27);
+  box-shadow: inset 0 -2px hsl(20 43% 31% / .75);
+}
+.admin-content { width: min(100% - 52px, 1240px); padding-top: 39px; }
+.admin-page-heading h1 { font-size: clamp(35px, 4vw, 48px); }
+.admin-page-heading p { margin-top: 5px; }
+.admin-summary {
+  min-height: 94px;
+  margin-top: 27px;
+  padding: 15px 23px;
+  border-radius: 3px;
+  border-inline-start: 3px solid hsl(20 43% 31%);
+  background: hsl(39 40% 97% / .68);
+}
+.admin-summary strong { font-size: 28px; }
+.summary-label { font-size: 11px; }
+.summary-note { padding-inline-start: 20px; border-inline-start: 1px solid var(--admin-line); }
+.admin-item-list { display: grid; gap: 9px; border-top: 0; }
+.admin-item-row {
+  min-height: 104px;
+  padding: 15px 18px;
+  border: 1px solid hsl(31 20% 79% / .84);
+  border-radius: 3px;
+  background: hsl(39 40% 97% / .68);
+  transition: border-color .18s, background-color .18s;
+}
+.admin-item-row:hover { border-color: hsl(20 43% 31% / .34); background: hsl(39 40% 98%); }
+.admin-item-photo { border-radius: 2px; }
+.admin-item-title h2 { font-size: 22px; }
+.admin-row-actions { padding-inline-start: 12px; }
+.admin-row-index { inset-inline-start: auto; inset-inline-end: 8px; top: 7px; }
+.admin-empty { border-radius: 3px; }
+.admin-modal-backdrop { background: hsl(24 28% 10% / .65); }
+.admin-editor { border-inline-end: 1px solid hsl(39 49% 62% / .3); }
+.admin-editor-head { background: linear-gradient(90deg, hsl(39 40% 97%), hsl(37 34% 93%)); }
+.admin-editor-actions { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+@media (min-width: 1100px) {
+  .admin-auth-wrap { margin-inline-start: auto; margin-inline-end: max(10vw, calc((100vw - 1120px) / 2)); }
+  .admin-auth-wrap::after { inset-inline-start: 9vw; }
+  .admin-item-row { grid-template-columns: 78px minmax(0,1fr) auto; }
+  .admin-item-photo { width: 78px; height: 78px; }
+}
+@media (max-width: 760px) {
+  .admin-auth-wrap { width: min(100% - 34px, 480px); padding-top: 27px; }
+  .admin-auth-wrap::before { width: 100%; height: 230px; border: 0; border-bottom: 1px solid hsl(39 49% 62% / .3); }
+  .admin-auth-wrap::after { inset-inline-start: auto; inset-inline-end: 14px; top: 67px; font-size: 30px; writing-mode: horizontal-tb; }
+  .admin-auth-wrap > .admin-brand { color: hsl(38 40% 94%); }
+  .admin-auth-wrap > .admin-brand small { color: hsl(34 19% 74%); }
+  .admin-auth-card { margin-top: 30px; padding: 29px 23px 24px; }
+  .admin-topbar { height: 72px; }
+  .admin-section-nav { width: calc(100% - 32px); }
+  .admin-content { width: calc(100% - 32px); }
+  .admin-item-list { gap: 7px; }
+  .admin-item-row { border-radius: 3px; }
+  .admin-summary { min-height: 76px; }
+}

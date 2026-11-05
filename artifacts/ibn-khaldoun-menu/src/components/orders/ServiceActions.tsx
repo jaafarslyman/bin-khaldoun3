@@ -19,7 +19,7 @@ export default function ServiceActions({
   onOpenBill,
 }: ServiceActionsProps) {
   return (
-    <section className="guest-service-actions" dir="rtl" aria-label="خدمات الطاولة" data-testid="panel-service-actions">
+    <nav className="guest-service-actions" dir="rtl" aria-label="خدمات الطاولة" data-testid="panel-service-actions">
       <button
         type="button"
         className="guest-service-action"
@@ -52,6 +52,6 @@ export default function ServiceActions({
         <span className="guest-action-icon"><ReceiptText size={18} /></span>
         <span><strong>{billPending ? "الحساب قيد التجهيز" : "الحساب"}</strong><small>{billPending ? "طلبك وصلنا" : "عندما تنتهي"}</small></span>
       </button>
-    </section>
+    </nav>
   );
 }

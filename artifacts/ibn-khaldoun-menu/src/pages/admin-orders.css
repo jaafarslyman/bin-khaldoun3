@@ -160,3 +160,27 @@
 @media (prefers-reduced-motion: reduce) {
   .orders-admin *, .orders-attention { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+.orders-admin { --orders-ink: hsl(25 26% 16%); --orders-muted: hsl(25 13% 45%); --orders-paper: hsl(39 40% 97%); --orders-line: hsl(31 20% 79%); --orders-umber: hsl(19 44% 27%); }
+.orders-page-heading h1 { font-size: clamp(34px, 4vw, 48px); }
+.orders-overview {
+  min-height: 94px;
+  padding: 15px 22px;
+  border-radius: 3px;
+  border-inline-start: 3px solid var(--orders-umber);
+  background: hsl(39 40% 97% / .68);
+}
+.orders-overview strong { font-size: 28px; }
+.orders-session-list { gap: 11px; }
+.orders-session-card { border-radius: 3px; background: hsl(39 40% 97% / .76); box-shadow: 0 6px 20px hsl(24 24% 17% / .035); }
+.orders-session-head { padding: 19px 20px 14px; }
+.orders-table-stamp { border-radius: 2px; background: hsl(39 49% 62% / .2); }
+.orders-order-card { border-radius: 2px; }
+.orders-order-serve,.orders-small-action { border-radius: 2px; }
+.orders-session-actions button,.orders-resolve-action { border-radius: 2px; }
+.orders-request-card { border-radius: 3px; background: hsl(39 40% 97% / .8); }
+.orders-attention { border-radius: 3px; border-inline-start: 3px solid var(--orders-umber); }
+@media (max-width: 620px) {
+  .orders-overview { min-height: 76px; }
+  .orders-session-head { padding: 13px 12px 10px; }
+}

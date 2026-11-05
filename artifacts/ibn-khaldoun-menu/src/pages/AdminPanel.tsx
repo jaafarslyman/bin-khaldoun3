@@ -371,14 +371,20 @@ function AdminPanel() {
   if (!isSupabaseConfigured) {
     return (
       <main className="admin-shell" dir="rtl">
-        <section className="admin-auth-card" role="alert" data-testid="status-supabase-not-configured">
-          <div className="admin-auth-icon"><ShieldCheck size={22} /></div>
-          <span className="admin-eyebrow">لوحة إدارة القائمة</span>
-          <h1>إعداد Supabase مطلوب</h1>
-          <p className="admin-intro">
-            أضف VITE_SUPABASE_URL و VITE_SUPABASE_ANON_KEY إلى متغيرات البيئة، ثم أعد تشغيل التطبيق.
-          </p>
-        </section>
+        <div className="admin-auth-wrap admin-setup-wrap">
+          <header className="admin-brand">
+            <span className="admin-brand-mark"><img src="/brand/logo.png" alt="" /></span>
+            <span>بن خلدون <small>إدارة القائمة</small></span>
+          </header>
+          <section className="admin-auth-card" role="alert" data-testid="status-supabase-not-configured">
+            <div className="admin-auth-icon"><ShieldCheck size={22} /></div>
+            <span className="admin-eyebrow">لوحة إدارة القائمة</span>
+            <h1>إعداد Supabase مطلوب</h1>
+            <p className="admin-intro">
+              أضف VITE_SUPABASE_URL و VITE_SUPABASE_ANON_KEY إلى متغيرات البيئة، ثم أعد تشغيل التطبيق.
+            </p>
+          </section>
+        </div>
       </main>
     );
   }
@@ -400,7 +406,7 @@ function AdminPanel() {
       <main className="admin-shell" dir="rtl">
         <div className="admin-auth-wrap">
           <header className="admin-brand">
-            <span className="admin-brand-mark"><Coffee size={22} /></span>
+            <span className="admin-brand-mark"><img src="/brand/logo.png" alt="" /></span>
             <span>بن خلدون <small>إدارة القائمة</small></span>
           </header>
           <section className="admin-auth-card">
@@ -452,7 +458,7 @@ function AdminPanel() {
     <main className="admin-shell admin-workspace" dir="rtl">
       <div className="admin-topbar">
         <div className="admin-brand">
-          <span className="admin-brand-mark"><Coffee size={21} /></span>
+          <span className="admin-brand-mark"><img src="/brand/logo.png" alt="" /></span>
           <span>بن خلدون <small>إدارة المقهى</small></span>
         </div>
         <div className="admin-session">
