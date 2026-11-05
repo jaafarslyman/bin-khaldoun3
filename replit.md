@@ -1,44 +1,52 @@
-# [Project name]
+# بن خلدون — القائمة
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Arabic-first café menu and table-ordering app with a staff menu manager, powered by Supabase.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- The `artifacts/ibn-khaldoun-menu: web` workflow runs the customer menu.
+- `pnpm --filter @workspace/ibn-khaldoun-menu run typecheck` — check the menu app.
+- `pnpm run typecheck` — check all workspace packages.
+- Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as environment variables, then restart the web workflow.
+- Run `artifacts/ibn-khaldoun-menu/supabase/schema.sql` in the Supabase SQL Editor.
+- Follow `artifacts/ibn-khaldoun-menu/README.md` to create and allowlist a staff user.
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Web: React + Vite
+- Data and authentication: Supabase Auth, Postgres, and Storage
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/ibn-khaldoun-menu/src/App.tsx` — customer menu, cart, table ordering, and `/admin` route.
+- `artifacts/ibn-khaldoun-menu/src/pages/AdminPanel.tsx` — staff sign-in and menu editor.
+- `artifacts/ibn-khaldoun-menu/src/lib/` — Supabase client, customer orders, and admin operations.
+- `artifacts/ibn-khaldoun-menu/supabase/schema.sql` — tables, RLS policies, functions, storage bucket, and starter menu.
+- `artifacts/ibn-khaldoun-menu/README.md` — Supabase setup and operating instructions.
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- The browser uses only the Supabase public anon key. Never expose a `service_role` key in browser code or in a `VITE_` variable.
+- Supabase RLS and database functions restrict staff actions to users in `public.admin_users`.
+- The app connects directly to Supabase; the API server and Replit `DATABASE_URL` are not required for this product.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Customers browse the Arabic menu, customize items, and submit orders for a table.
+- Staff sign in at `/admin` to manage menu items, variants, and ingredient options.
+- Submitted orders are saved in Supabase and can be reviewed in its dashboard; an in-app order-management screen is not included.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- The user will add Supabase credentials manually as environment variables.
+- Do not add a separate preview feature.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Vite reads `VITE_` variables at startup/build time. Restart the web workflow after setting or changing them.
+- The SQL setup seeds sample dishes and prices; replace them with the café's real menu before accepting live orders.
+- QR links may include `?table=12`; without a table number, customers are prompted to enter one.
 
 ## Pointers
 
